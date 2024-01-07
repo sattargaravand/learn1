@@ -1,7 +1,41 @@
 import './App.css';
-import {useState, useRef} from "react";
+import {useState, useRef, useEffect} from "react";
+import SingleColor from "./SingleColor";
+import Values from "values.js";
+import {Button, Grid} from "@mui/material";
 
 function App() {
+
+    //////
+    const [color, setColor] = useState("");
+    const [err, setError] = useState(false);
+    const [list, setList] = useState([]);
+
+    function renderData() {
+        try {
+            let data = new Values(color);
+            setList(data.all(10));
+            setError(false);
+            // console.log(data);
+        } catch (error) {
+            setError(true);
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        let data = new Values("#f15025");
+        setList(data.all(10));
+    }, []);
+
+    // console.log(color);
+
+    function handleClick(e) {
+        e.preventDefault();
+        renderData();
+    }
+
+    /////
 
     const [courseList, setCourseList] = useState([])
     const [newCourse, setNewCourse] = useState("")
@@ -36,27 +70,49 @@ function App() {
 
 
     return (
-        <div style={{display: 'flex', justifyContent: 'center', textAlign: 'center'}}>
+        <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center'}}>
 
-            <div style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>
-                <div>
+            <Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>
+                <Grid>
                     <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef}/>
-                    <button onClick={handelAddItem}> add</button>
-                </div>
+                    <Button onClick={handelAddItem}> add</Button>
+                </Grid>
 
                 {courseList.map((item, index) => (
-                    <div style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}
+                    <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}
                          key={index}>
                         <p>{item.name}</p>
-                        <button onClick={() => handelDelete(index)}>delete</button>
-                        <button style={{color: item.is_done === true ? 'green' : 'blue'}}
+                        <Button onClick={() => handelDelete(index)}>delete</Button>
+                        <Button style={{color: item.is_done === true ? 'green' : 'blue'}}
                                 onClick={() => isDoneHandeler(index)}>is completed
-                        </button>
+                        </Button>
 
-                    </div>
+                    </Grid>
                 ))}
-            </div>
-        </div>
+
+                <section>
+                    <h3>Color Generator</h3>
+                    <form>
+                        <input
+                            className={err ? "error" : "null"}
+                            type="text"
+                            placeholder="#f15025"
+                            value={color}
+                            onChange={(e) => setColor(e.target.value)}
+                        />
+                        <button onClick={handleClick} type="submit">
+                            submit
+                        </button>
+                    </form>
+                </section>
+                <section style={{display:'flex',gap:8,margin:5}}>
+                    {list.map((item, index) => {
+                        return <SingleColor key={index} item={item}/>;
+                    })}
+                </section>
+            </Grid>
+
+        </Grid>
     );
 }
 
