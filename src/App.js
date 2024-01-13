@@ -3,6 +3,8 @@ import {useState, useRef, useEffect} from "react";
 import SingleColor from "./SingleColor";
 import Values from "values.js";
 import {Button, Grid} from "@mui/material";
+import FullName from "./FullName";
+
 
 function App() {
 
@@ -70,11 +72,11 @@ function App() {
 
 
     return (
-        <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center'}}>
+        <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center',flexDirection:'column'}}>
 
             <Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>
                 <Grid>
-                    <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef}/>
+                    <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>
                     <Button onClick={handelAddItem}> add</Button>
                 </Grid>
 
@@ -83,7 +85,7 @@ function App() {
                          key={index}>
                         <p>{item.name}</p>
                         <Button onClick={() => handelDelete(index)}>delete</Button>
-                        <Button style={{color: item.is_done === true ? 'green' : 'blue'}}
+                        <Button style={{color: item.is_done === true ? 'red' : 'blue'}}
                                 onClick={() => isDoneHandeler(index)}>is completed
                         </Button>
 
@@ -112,6 +114,7 @@ function App() {
                 </section>
             </Grid>
 
+            <FullName/>
         </Grid>
     );
 }
