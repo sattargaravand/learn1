@@ -4,7 +4,7 @@ import SingleColor from "./SingleColor";
 import Values from "values.js";
 import {Button, Grid} from "@mui/material";
 import FullName from "./FullName";
-
+import Cat from "./Cat";
 
 function App() {
 
@@ -74,47 +74,48 @@ function App() {
     return (
         <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center',flexDirection:'column'}}>
 
-            <Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>
-                <Grid>
-                    <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>
-                    <Button onClick={handelAddItem}> add</Button>
-                </Grid>
+            {/*<Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>*/}
+            {/*    <Grid>*/}
+            {/*        <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>*/}
+            {/*        <Button onClick={handelAddItem}> add</Button>*/}
+            {/*    </Grid>*/}
 
-                {courseList.map((item, index) => (
-                    <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}
-                         key={index}>
-                        <p>{item.name}</p>
-                        <Button onClick={() => handelDelete(index)}>delete</Button>
-                        <Button style={{color: item.is_done === true ? 'red' : 'blue'}}
-                                onClick={() => isDoneHandeler(index)}>is completed
-                        </Button>
+            {/*    {courseList.map((item, index) => (*/}
+            {/*        <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}*/}
+            {/*             key={index}>*/}
+            {/*            <p>{item.name}</p>*/}
+            {/*            <Button onClick={() => handelDelete(index)}>delete</Button>*/}
+            {/*            <Button style={{color: item.is_done === true ? 'red' : 'blue'}}*/}
+            {/*                    onClick={() => isDoneHandeler(index)}>is completed*/}
+            {/*            </Button>*/}
 
-                    </Grid>
-                ))}
+            {/*        </Grid>*/}
+            {/*    ))}*/}
 
-                <section>
-                    <h3>Color Generator</h3>
-                    <form>
-                        <input
-                            className={err ? "error" : "null"}
-                            type="text"
-                            placeholder="#f15025"
-                            value={color}
-                            onChange={(e) => setColor(e.target.value)}
-                        />
-                        <button onClick={handleClick} type="submit">
-                            submit
-                        </button>
-                    </form>
-                </section>
-                <section style={{display:'flex',gap:8,margin:5}}>
-                    {list.map((item, index) => {
-                        return <SingleColor key={index} item={item}/>;
-                    })}
-                </section>
-            </Grid>
+            {/*    <section>*/}
+            {/*        <h3>Color Generator</h3>*/}
+            {/*        <form>*/}
+            {/*            <input*/}
+            {/*                className={err ? "error" : "null"}*/}
+            {/*                type="text"*/}
+            {/*                placeholder="#f15025"*/}
+            {/*                value={color}*/}
+            {/*                onChange={(e) => setColor(e.target.value)}*/}
+            {/*            />*/}
+            {/*            <button onClick={handleClick} type="submit">*/}
+            {/*                submit*/}
+            {/*            </button>*/}
+            {/*        </form>*/}
+            {/*    </section>*/}
+            {/*    <section style={{display:'flex',gap:8,margin:5}}>*/}
+            {/*        {list.map((item, index) => {*/}
+            {/*            return <SingleColor key={index} item={item}/>;*/}
+            {/*        })}*/}
+            {/*    </section>*/}
+            {/*</Grid>*/}
 
-            <FullName/>
+            {/*<FullName/>*/}
+            <Cat/>
         </Grid>
     );
 }
