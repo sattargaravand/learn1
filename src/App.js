@@ -1,74 +1,71 @@
 import './App.css';
-import {useState, useRef, useEffect} from "react";
-import SingleColor from "./SingleColor";
-import Values from "values.js";
-import {Button, Grid} from "@mui/material";
-import FullName from "./FullName";
+import {Grid} from "@mui/material";
 import Cat from "./Cat";
 
 function App() {
-
-    //////
-    const [color, setColor] = useState("");
-    const [err, setError] = useState(false);
-    const [list, setList] = useState([]);
-
-    function renderData() {
-        try {
-            let data = new Values(color);
-            setList(data.all(10));
-            setError(false);
-            // console.log(data);
-        } catch (error) {
-            setError(true);
-            console.log(error);
-        }
-    }
-
-    useEffect(() => {
-        let data = new Values("#f15025");
-        setList(data.all(10));
-    }, []);
-
-    // console.log(color);
-
-    function handleClick(e) {
-        e.preventDefault();
-        renderData();
-    }
-
-    /////
-
-    const [courseList, setCourseList] = useState([])
-    const [newCourse, setNewCourse] = useState("")
-
-    const inputRef = useRef();
-
-    const handelChange = (e) => {
-        console.log(e.target.value)
-        setNewCourse(e.target.value)
-    }
-    const handelAddItem = () => {
-        if (newCourse.trim().length === 0) return false;
-        let newItem = [...courseList]
-        newItem.push({name: newCourse, id: courseList.length + 1, is_done: false})
-        setCourseList(newItem)
-        setNewCourse('')
-        inputRef.current.focus()
-
-    }
-    const handelDelete = (index) => {
-        let copyState = [...courseList]
-        copyState.splice(index, 1)
-        setCourseList(copyState)
-    }
-    const isDoneHandeler = (index) => {
-        let copyState = [...courseList]
-        let item = copyState[index]
-        item.is_done = true
-        setCourseList(copyState)
-
-    }
+// console.log(data)
+//     //////
+//     const [color, setColor] = useState("");
+//     const [err, setError] = useState(false);
+//     const [list, setList] = useState([]);
+//
+//
+//     function renderData() {
+//         try {
+//             let data = new Values(color);
+//             setList(data.all(10));
+//             setError(false);
+//             // console.log(data);
+//         } catch (error) {
+//             setError(true);
+//             console.log(error);
+//         }
+//     }
+//
+//     useEffect(() => {
+//         let data = new Values("#f15025");
+//         setList(data.all(10));
+//     }, []);
+//
+//     // console.log(color);
+//
+//     function handleClick(e) {
+//         e.preventDefault();
+//         renderData();
+//     }
+//
+//     /////
+//
+//     const [courseList, setCourseList] = useState([])
+//     const [newCourse, setNewCourse] = useState("")
+//
+//     const inputRef = useRef();
+//
+//     const handelChange = (e) => {
+//         console.log(e.target.value)
+//         setNewCourse(e.target.value)
+//     }
+//     const handelAddItem = () => {
+//         if (newCourse.trim().length === 0) return false;
+//         let newItem = [...courseList]
+//         newItem.push({name: newCourse, id: courseList.length + 1, is_done: false})
+//         setCourseList(newItem)
+//         setNewCourse('')
+//         inputRef.current.focus()
+//
+//     }
+//     const handelDelete = (index) => {
+//         let copyState = [...courseList]
+//         copyState.splice(index, 1)
+//         setCourseList(copyState)
+//     }
+//     const isDoneHandeler = (index) => {
+//         let copyState = [...courseList]
+//         let item = copyState[index]
+//         item.is_done = true
+//         setCourseList(copyState)
+//
+//     }
 
 
     return (
