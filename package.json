@@ -21,6 +21,7 @@
     "react-router-dom": "^6.21.1",
     "react-scripts": "5.0.1",
     "react-svg": "^16.1.32",
+    "react-switch": "^7.0.0",
     "value": "^0.4.0",
     "values.js": "^2.1.1",
     "web-vitals": "^2.1.4"

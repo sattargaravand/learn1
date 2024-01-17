@@ -1,8 +1,10 @@
 import './App.css';
 import {Grid} from "@mui/material";
 import Cat from "./Cat";
+import CssBaseline from "@mui/material/CssBaseline";
 
 function App() {
+
 // console.log(data)
 //     //////
 //     const [color, setColor] = useState("");
@@ -69,51 +71,59 @@ function App() {
 
 
     return (
-        <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center',flexDirection:'column'}}>
 
-            {/*<Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>*/}
-            {/*    <Grid>*/}
-            {/*        <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>*/}
-            {/*        <Button onClick={handelAddItem}> add</Button>*/}
-            {/*    </Grid>*/}
+            <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',width:'100%'}}>
 
-            {/*    {courseList.map((item, index) => (*/}
-            {/*        <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}*/}
-            {/*             key={index}>*/}
-            {/*            <p>{item.name}</p>*/}
-            {/*            <Button onClick={() => handelDelete(index)}>delete</Button>*/}
-            {/*            <Button style={{color: item.is_done === true ? 'red' : 'blue'}}*/}
-            {/*                    onClick={() => isDoneHandeler(index)}>is completed*/}
-            {/*            </Button>*/}
+                <CssBaseline/>
 
-            {/*        </Grid>*/}
-            {/*    ))}*/}
+                {/*<Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>*/}
+                {/*    <Grid>*/}
+                {/*        <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>*/}
+                {/*        <Button onClick={handelAddItem}> add</Button>*/}
+                {/*    </Grid>*/}
 
-            {/*    <section>*/}
-            {/*        <h3>Color Generator</h3>*/}
-            {/*        <form>*/}
-            {/*            <input*/}
-            {/*                className={err ? "error" : "null"}*/}
-            {/*                type="text"*/}
-            {/*                placeholder="#f15025"*/}
-            {/*                value={color}*/}
-            {/*                onChange={(e) => setColor(e.target.value)}*/}
-            {/*            />*/}
-            {/*            <button onClick={handleClick} type="submit">*/}
-            {/*                submit*/}
-            {/*            </button>*/}
-            {/*        </form>*/}
-            {/*    </section>*/}
-            {/*    <section style={{display:'flex',gap:8,margin:5}}>*/}
-            {/*        {list.map((item, index) => {*/}
-            {/*            return <SingleColor key={index} item={item}/>;*/}
-            {/*        })}*/}
-            {/*    </section>*/}
-            {/*</Grid>*/}
+                {/*    {courseList.map((item, index) => (*/}
+                {/*        <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}*/}
+                {/*             key={index}>*/}
+                {/*            <p>{item.name}</p>*/}
+                {/*            <Button onClick={() => handelDelete(index)}>delete</Button>*/}
+                {/*            <Button style={{color: item.is_done === true ? 'red' : 'blue'}}*/}
+                {/*                    onClick={() => isDoneHandeler(index)}>is completed*/}
+                {/*            </Button>*/}
 
-            {/*<FullName/>*/}
-            <Cat/>
-        </Grid>
+                {/*        </Grid>*/}
+                {/*    ))}*/}
+
+                {/*    <section>*/}
+                {/*        <h3>Color Generator</h3>*/}
+                {/*        <form>*/}
+                {/*            <input*/}
+                {/*                className={err ? "error" : "null"}*/}
+                {/*                type="text"*/}
+                {/*                placeholder="#f15025"*/}
+                {/*                value={color}*/}
+                {/*                onChange={(e) => setColor(e.target.value)}*/}
+                {/*            />*/}
+                {/*            <button onClick={handleClick} type="submit">*/}
+                {/*                submit*/}
+                {/*            </button>*/}
+                {/*        </form>*/}
+                {/*    </section>*/}
+                {/*    <section style={{display:'flex',gap:8,margin:5}}>*/}
+                {/*        {list.map((item, index) => {*/}
+                {/*            return <SingleColor key={index} item={item}/>;*/}
+                {/*        })}*/}
+                {/*    </section>*/}
+                {/*</Grid>*/}
+
+                {/*<FullName/>*/}
+                <Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',overflow:'hidden'}}>
+
+                    <Cat/>
+
+                </Grid>
+            </Grid>
+
     );
 }
 
