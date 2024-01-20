@@ -4,61 +4,42 @@ export const data = [
         name: 'Persian',
         age: 29,
         image:
-            'https://s6.uupload.ir/files/download_(2)_eex9.jpeg',
+            'https://i.ibb.co/j3ymYSQ/download-6.jpg',
     },
     {
         id: 2,
         name: 'Siamese',
-        age: 32,
+        age: 2,
         image:
-            'https://s6.uupload.ir/files/download_(4)_ax.jpeg',
+            'https://i.ibb.co/gP3th7G/download-5.jpg',
     },
     {
         id: 3,
         name: 'Maine',
         age: 36,
         image:
-            'https://s6.uupload.ir/files/download_(3)_rin8.jpeg',
+            'https://i.ibb.co/84YjvLT/download-4.jpg',
     },
     {
         id: 4,
         name: 'Ragdoll',
         age: 34,
         image:
-            'https://s6.uupload.ir/files/download_(2)_eex9.jpeg',
+            'https://i.ibb.co/YP2wg3J/download-3.jpg',
     },
     {
         id: 5,
         name: 'British',
         age: 29,
         image:
-            'https://s6.uupload.ir/files/download_(1)_fjyt.jpeg',
-    },    {
+            'https://i.ibb.co/4YMJcvt/download-1.jpg',
+    },
+    {
         id: 6,
         name: 'Siamese',
         age: 3,
         image:
-            'https://s6.uupload.ir/files/download_(4)_ax.jpeg',
+            'https://i.ibb.co/X3DpYmc/download-2.jpg',
     },
-    {
-        id: 7,
-        name: 'Maine',
-        age: 6,
-        image:
-            'https://s6.uupload.ir/files/download_(3)_rin8.jpeg',
-    },
-    {
-        id: 8,
-        name: 'Ragdoll',
-        age: 4,
-        image:
-            'https://s6.uupload.ir/files/download_(2)_eex9.jpeg',
-    },
-    {
-        id: 9,
-        name: 'British',
-        age: 10,
-        image:
-            'https://s6.uupload.ir/files/download_(1)_fjyt.jpeg',
-    },
+
 ];

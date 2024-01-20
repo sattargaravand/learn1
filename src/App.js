@@ -2,6 +2,7 @@ import './App.css';
 import {Grid} from "@mui/material";
 import Cat from "./Cat";
 import CssBaseline from "@mui/material/CssBaseline";
+import Popup from "reactjs-popup";
 
 function App() {
 
@@ -72,7 +73,7 @@ function App() {
 
     return (
 
-            <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',width:'100%'}}>
+            <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',width:'100wh'}}>
 
                 <CssBaseline/>
 
@@ -118,6 +119,7 @@ function App() {
 
                 {/*<FullName/>*/}
                 <Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',overflow:'hidden'}}>
+
 
                     <Cat/>
 
