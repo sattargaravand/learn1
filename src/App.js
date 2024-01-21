@@ -3,6 +3,7 @@ import {Grid} from "@mui/material";
 import Cat from "./Cat";
 import CssBaseline from "@mui/material/CssBaseline";
 import Popup from "reactjs-popup";
+import Cocktail from "./Cocktail";
 
 function App() {
 
@@ -73,7 +74,7 @@ function App() {
 
     return (
 
-            <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column',width:'100wh'}}>
+            <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column'}}>
 
                 <CssBaseline/>
 
@@ -118,10 +119,11 @@ function App() {
                 {/*</Grid>*/}
 
                 {/*<FullName/>*/}
-                <Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',overflow:'hidden'}}>
+                <Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>
 
 
-                    <Cat/>
+                    {/*<Cat/>*/}
+                    <Cocktail/>
 
                 </Grid>
             </Grid>
