@@ -18,7 +18,7 @@
     "react-components": "^0.5.1",
     "react-dom": "^18.2.0",
     "react-imported-component": "^6.5.3",
-    "react-router-dom": "^6.21.1",
+    "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "react-svg": "^16.1.32",
     "react-switch": "^7.0.0",

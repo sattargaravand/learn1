@@ -5,6 +5,12 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Popup from "reactjs-popup";
 import Cocktail from "./Cocktail";
 
+import Home from "../src/cock/Home";
+import About from "../src/cock/About";
+import Newsletter from "../src/cock/Newsletter";
+import {Route, Routes} from "react-router-dom";
+
+
 function App() {
 
 // console.log(data)
@@ -74,7 +80,7 @@ function App() {
 
     return (
 
-            <Grid style={{display: 'flex', justifyContent: 'center', textAlign: 'center', flexDirection: 'column'}}>
+            <>
 
                 <CssBaseline/>
 
@@ -119,14 +125,20 @@ function App() {
                 {/*</Grid>*/}
 
                 {/*<FullName/>*/}
-                <Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>
+                {/*<Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>*/}
 
 
                     {/*<Cat/>*/}
-                    <Cocktail/>
 
-                </Grid>
-            </Grid>
+                {/*</Grid>*/}
+
+                <Routes>
+                        <Route  path='/' element={< Cocktail />}/>
+                        <Route  path='/About' element={< About />}/>
+                        <Route  path='/Newsletter' element={<Newsletter/>}/>
+                    </Routes>
+
+            </>
 
     );
 }
