@@ -1,32 +1,16 @@
 import React from 'react';
 import Box from "@mui/material/Box";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import {NavLink} from "react-router-dom";
 import {Grid, Typography} from "@mui/material";
+import Header from "./Header";
 
 const About = () => {
     return (
 
-        <Box sx={{flexGrow: 1, mt: 4,justifyContent:'center',alignItems:"center",padding:4}}>
-            <AppBar>
-                <Toolbar sx={{display:'flex',justifyContent:"space-between",backgroundColor:'#B8E896'}}>
+        <Box item sx={{flexGrow: 1,justifyContent:'center',alignItems:"center"}}>
 
+            <Header/>
 
-                    <h1>MixMaster</h1>
-
-                    <Grid sx={{display:'flex',gap: 2}}>
-                        <NavLink to={'/'}>home</NavLink>
-                        <NavLink to={'/About'}>about</NavLink>
-                        <NavLink to={'/Newsletter'}>new</NavLink>
-                    </Grid>
-
-
-
-                </Toolbar>
-            </AppBar>
-
-            <Grid sx={{padding:4,margin:'auto'}}>
+            <Grid item sx={{padding:4,margin:'auto'}}>
                 <h1>About Us</h1>
 
                 <Typography>

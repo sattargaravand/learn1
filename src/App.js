@@ -1,11 +1,7 @@
 import './App.css';
-import {Grid} from "@mui/material";
-import Cat from "./Cat";
 import CssBaseline from "@mui/material/CssBaseline";
-import Popup from "reactjs-popup";
 import Cocktail from "./Cocktail";
 
-import Home from "../src/cock/Home";
 import About from "../src/cock/About";
 import Newsletter from "../src/cock/Newsletter";
 import {Route, Routes} from "react-router-dom";
