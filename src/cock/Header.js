@@ -10,7 +10,7 @@ const Header = () => {
         <Box sx={{mb: 4,}}>
             <AppBar position="static">
                 <Toolbar
-                    sx={{flexGrow: 1, display: 'flex', justifyContent: 'space-between', backgroundColor: '#B8E896'}}
+                    sx={{display:{ xs:'block',sm:'flex',md:'flex'}, justifyContent: 'space-between', backgroundColor: '#B8E896'}}
                     variant="dense">
 
                     <h1>MixMaster</h1>

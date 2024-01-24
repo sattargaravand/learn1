@@ -5,7 +5,8 @@ import Cocktail from "./Cocktail";
 import About from "../src/cock/About";
 import Newsletter from "../src/cock/Newsletter";
 import {Route, Routes} from "react-router-dom";
-
+import OpenFull from './cock/OpenFull';
+import Details from "./cock/details";
 
 function App() {
 
@@ -132,8 +133,10 @@ function App() {
                         <Route  path='/' element={< Cocktail />}/>
                         <Route  path='/About' element={< About />}/>
                         <Route  path='/Newsletter' element={<Newsletter/>}/>
+                        <Route  path='/blog/details' element={<Details/>}/>
                     </Routes>
 
+                {/*<OpenFull/>*/}
             </>
 
     );
