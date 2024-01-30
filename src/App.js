@@ -5,8 +5,8 @@ import Cocktail from "./Cocktail";
 import About from "../src/cock/About";
 import Newsletter from "../src/cock/Newsletter";
 import {Route, Routes} from "react-router-dom";
-import OpenFull from './cock/OpenFull';
 import Details from "./cock/details";
+import ShopPhone from "./phone/ShopPhone";
 
 function App() {
 
@@ -128,13 +128,14 @@ function App() {
                     {/*<Cat/>*/}
 
                 {/*</Grid>*/}
+                <ShopPhone/>
 
-                <Routes>
-                        <Route  path='/' element={< Cocktail />}/>
-                        <Route  path='/About' element={< About />}/>
-                        <Route  path='/Newsletter' element={<Newsletter/>}/>
-                        <Route  path='/blog/details' element={<Details/>}/>
-                    </Routes>
+                {/*<Routes>*/}
+                {/*        <Route  path='/' element={< Cocktail />}/>*/}
+                {/*        <Route  path='/About' element={< About />}/>*/}
+                {/*        <Route  path='/Newsletter' element={<Newsletter/>}/>*/}
+                {/*        <Route  path='/blog/details' element={<Details/>}/>*/}
+                {/*    </Routes>*/}
 
                 {/*<OpenFull/>*/}
             </>

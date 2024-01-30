@@ -6,7 +6,7 @@ import Header from "./Header";
 const About = () => {
     return (
 
-        <Box item sx={{flexGrow: 1,justifyContent:'center',alignItems:"center"}}>
+        <Box item sx={{justifyContent:'center',alignItems:"center"}}>
 
             <Header/>
 

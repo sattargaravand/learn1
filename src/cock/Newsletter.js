@@ -10,9 +10,11 @@ import Header from "./Header";
 const Newsletter = () => {
     return (
         <Grid>
-            <Header/>
+
             <Grid>
+
                 <Card>
+                    <Header/>
                     <CardActions>
 
                         <CardContent sx={{
