@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {AppBar, Box, Grid, Typography} from "@mui/material";
+import {AppBar, Badge, Box, Grid, Stack, Typography} from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {PhoneApi} from "../Api/PhoneApi";
@@ -11,6 +11,22 @@ import {useQuery} from "react-query";
 const ShopPhone = () => {
 
     const [items, setItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+
+    const fetchData = async () => {
+        if (items?.length > 0) return;
+        try {
+            const res = PhoneApi;
+            setItems(res)
+            return res;
+        } catch (error) {
+            console.log("error")
+        }
+    };
+    const {isLoading} = useQuery(['phone_list'], fetchData)
+    if (isLoading) return <>Loading...</>
+
 
     const HandleDelete = (id) => {
         let copyState = [...items];
@@ -27,30 +43,47 @@ const ShopPhone = () => {
         let item = itemsCopy[fIndex];
         if (isIncrease) {
             item.amount = item.amount + 1;
+            setItems([...items, item]);
+
+            setTotalPrice(totalPrice + item.price);
+
+
         } else {
-            if (item?.amount > 1)
+            if (item?.amount > 0)
                 item.amount = item.amount - 1;
+            else {
+                if (totalPrice >= 0) return false;
+            }
+
+            setTotalPrice(totalPrice - item.price)
+
         }
+
 
         setItems(itemsCopy);
     }
 
-    const fetchData = async () => {
-        if (items?.length > 0) return;
-        try {
-            const res = PhoneApi;
-            setItems(res)
-            return res;
-        } catch (error) {
-            console.log("error")
-        }
-    };
-    const {isLoading} = useQuery(['phone_list'], fetchData)
-    if (isLoading) return <>Loading...</>
 
+    // const addItemToCart = (item) => {
+    //     // Logic to add item to the cart
+    //     setCartItems([...cartItems, item]);
+    //
+    //     // Logic to update the total price
+    //     setTotalPrice(totalPrice + item.price);
+    // }
+
+    // const removeItemFromCart = (item) => {
+    //     // Logic to remove item from the cart
+    //     const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== item.id);
+    //     setCartItems(updatedCartItems);
+    //
+    //     // Logic to update the total price
+    //     setTotalPrice(totalPrice - item.price);
+    // }
 
     return (
-        <>
+        <Grid container item
+              sx={{display: 'flex', flexDirection: 'column', width: "100%", backgroundColor: '#ffd4d4'}}>
             <Grid>
                 <Box>
                     <AppBar position="static">
@@ -58,7 +91,7 @@ const ShopPhone = () => {
                             sx={{
                                 display: {xs: 'block', sm: 'flex', md: 'flex'},
                                 justifyContent: 'space-between',
-                                backgroundColor: '#B8E896',
+                                backgroundColor: '#a61414',
                                 boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)'
                             }}
                             variant="dense">
@@ -73,64 +106,82 @@ const ShopPhone = () => {
                     </AppBar>
                 </Box>
             </Grid>
-            <Grid container sx={{
+            <Grid item container sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                width: '100%'
+                width: '100%',
+                backgroundColor: '#ffffff'
             }}>
-                <Typography sx={{textAlign: 'center', fontSize: '25px', mt: 4, mb: 4}}>YOUR BAG</Typography>
+                <h2>Total Price: ${totalPrice}</h2>
 
-                <Grid>
+                <Typography sx={{textAlign: 'center', fontSize: '25px', mt: 2, mb: 2}}>YOUR BAG</Typography>
+
+
+                <Grid item columns={1} xs={1} sm={4} md={3} lg={2}>
                     {items.map((item, id) => (
                         <Grid key={item.id} sx={{
                             display: 'flex',
-                            gap: 8,
+                            flexDirection: {xs: 'column', sm: 'column', md: 'row'},
                             justifyContent: 'center',
                             alignItems: "center",
-                            mb: 3,
-                            width: '100%'
+                            mb: 1,
+                            gap: 6,
                         }}>
 
                             <Grid>
                                 <img src={item.img} alt={"phone image"} width={"200px"} height={"200px"}/>
                             </Grid>
-                            <Grid sx={{width: '100%'}}>
-                                {item.title}
-                                <br/>
-                                {item.id}
-                                <br/>
-                                {item.price} <br/>
-                                <button onClick={() => HandleDelete(item.id)}>remove</button>
+
+                            <Grid item
+
+                                sx={{justifyContent: 'space-between', display: 'flex', gap: 2}}>
+                                <Grid>
+
+                                    {item.title}
+                                    <br/>
+                                    {item.id}
+                                    <br/>
+                                    <Typography> $ {item.price}</Typography> <br/>
+
+
+                                    <button onClick={() => HandleDelete(item.id)}>remove</button>
+                                </Grid>
+
+                                <Grid item
+
+                                    sx={{alignItems: 'center', textAlign: 'center'}}>
+                                    <KeyboardArrowUpIcon
+
+                                        onClick={() => {
+                                            changeItemAmount(item.id)
+                                        }}/>
+
+                                    <h3>{item.amount}</h3>
+
+                                    <KeyboardArrowDownIcon
+
+                                        onClick={() => {
+                                            changeItemAmount(item.id, false)
+
+                                        }}/>
+                                </Grid>
 
                             </Grid>
-                            <Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                                <KeyboardArrowUpIcon
 
-                                    onClick={() => {
-                                        changeItemAmount(item.id)
-                                    }}/>
-
-                                <h3>{item.amount}</h3>
-
-                                <KeyboardArrowDownIcon
-
-                                    onClick={() => {
-                                        changeItemAmount(item.id, false)
-
-                                    }}/>
-                            </Grid>
                         </Grid>
+
+
                     ))}
 
                 </Grid>
 
             </Grid>
             <hr/>
-            <Typography>Total</Typography>
+            <Typography fontSize={"20px"}>Total Price: $ {totalPrice}</Typography>
 
-        </>
+        </Grid>
     );
 
 };
