@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {AppBar, Badge, Box, Grid, Stack, Typography} from "@mui/material";
+import React, {useState} from 'react';
+import {AppBar, Badge, Box, Grid, Typography} from "@mui/material";
 import Toolbar from "@mui/material/Toolbar";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {PhoneApi} from "../Api/PhoneApi";
@@ -64,47 +64,51 @@ const ShopPhone = () => {
     }
 
 
-    // const addItemToCart = (item) => {
-    //     // Logic to add item to the cart
-    //     setCartItems([...cartItems, item]);
-    //
-    //     // Logic to update the total price
-    //     setTotalPrice(totalPrice + item.price);
-    // }
+    const f = new Intl.NumberFormat(undefined, '', {
+        currency: "USD",
+        style: "currency",
+    })
 
-    // const removeItemFromCart = (item) => {
-    //     // Logic to remove item from the cart
-    //     const updatedCartItems = cartItems.filter((cartItem) => cartItem.id !== item.id);
-    //     setCartItems(updatedCartItems);
-    //
-    //     // Logic to update the total price
-    //     setTotalPrice(totalPrice - item.price);
-    // }
+
+    let totalCount = 0;
+    items?.map(i => totalCount += i?.amount)
+
+
+    let actualPrice = 0;
+    items?.map(item => actualPrice += item?.price * item?.amount)
 
     return (
         <Grid container item
-              sx={{display: 'flex', flexDirection: 'column', width: "100%", backgroundColor: '#ffd4d4'}}>
+              sx={{display: 'flex', flexDirection: 'column', width: "100%", backgroundColor: '#ffffff'}}>
             <Grid>
+
                 <Box>
                     <AppBar position="static">
                         <Toolbar
+
                             sx={{
                                 display: {xs: 'block', sm: 'flex', md: 'flex'},
                                 justifyContent: 'space-between',
-                                backgroundColor: '#a61414',
+                                backgroundColor: '#3a35cb',
                                 boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)'
                             }}
                             variant="dense">
 
                             <h1 style={{color: 'red'}}>UserReducer</h1>
-
                             <Grid sx={{display: 'flex', gap: 2, textDecoration: 'none'}}>
-                                <AddShoppingCartIcon/>
-                            </Grid>
 
+                                <Grid sx={{display: 'flex', flexDirection: 'column'}}>
+                                    <Badge badgeContent={totalCount} color={"primary"}>
+                                    </Badge>
+                                    <AddShoppingCartIcon sx={{fontSize: '40px'}}/>
+                                    <br/>
+                                </Grid>
+
+                            </Grid>
                         </Toolbar>
                     </AppBar>
                 </Box>
+
             </Grid>
             <Grid item container sx={{
                 display: 'flex',
@@ -112,9 +116,9 @@ const ShopPhone = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 width: '100%',
-                backgroundColor: '#ffffff'
+                backgroundColor: 'rgba(255,255,255,0.68)'
             }}>
-                <h2>Total Price: ${totalPrice}</h2>
+                <h2>Total Price: {f.format(actualPrice)} </h2>
 
                 <Typography sx={{textAlign: 'center', fontSize: '25px', mt: 2, mb: 2}}>YOUR BAG</Typography>
 
@@ -136,22 +140,23 @@ const ShopPhone = () => {
 
                             <Grid item
 
-                                sx={{justifyContent: 'space-between', display: 'flex', gap: 2}}>
+                                  sx={{justifyContent: 'space-between', display: 'flex', gap: 2}}>
                                 <Grid>
 
                                     {item.title}
                                     <br/>
-                                    {item.id}
                                     <br/>
-                                    <Typography> $ {item.price}</Typography> <br/>
+                                    <Typography>${item.price}</Typography> <br/>
 
 
                                     <button onClick={() => HandleDelete(item.id)}>remove</button>
                                 </Grid>
+                                <hr/>
+
 
                                 <Grid item
 
-                                    sx={{alignItems: 'center', textAlign: 'center'}}>
+                                      sx={{alignItems: 'center', textAlign: 'center'}}>
                                     <KeyboardArrowUpIcon
 
                                         onClick={() => {
@@ -165,10 +170,14 @@ const ShopPhone = () => {
                                         onClick={() => {
                                             changeItemAmount(item.id, false)
 
+
                                         }}/>
+
                                 </Grid>
 
+
                             </Grid>
+
 
                         </Grid>
 
@@ -178,8 +187,8 @@ const ShopPhone = () => {
                 </Grid>
 
             </Grid>
-            <hr/>
-            <Typography fontSize={"20px"}>Total Price: $ {totalPrice}</Typography>
+
+            <Typography fontSize={"20px"}>Total Price: {f.format(actualPrice)} </Typography>
 
         </Grid>
     );
