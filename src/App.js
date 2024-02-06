@@ -1,12 +1,16 @@
 import './App.css';
 import CssBaseline from "@mui/material/CssBaseline";
-import Cocktail from "./Cocktail";
+// import Cocktail from "./Cocktail";
 
-import About from "../src/cock/About";
+// import About from "../src/cock/About";
 import Newsletter from "../src/cock/Newsletter";
 import {Route, Routes} from "react-router-dom";
 import Details from "./cock/details";
-import ShopPhone from "./phone/ShopPhone";
+// import ShopPhone from "./phone/ShopPhone";
+import ComfortShop from "./shop/ComfortShop";
+import About from "./shop/About";
+import Products from "./shop/Products";
+import Cart from "./shop/Cart";
 
 function App() {
 
@@ -77,68 +81,76 @@ function App() {
 
     return (
 
-            <>
+        <>
 
-                <CssBaseline/>
+            <CssBaseline/>
 
-                {/*<Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>*/}
-                {/*    <Grid>*/}
-                {/*        <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>*/}
-                {/*        <Button onClick={handelAddItem}> add</Button>*/}
-                {/*    </Grid>*/}
+            {/*<Grid style={{display: 'flex', flexDirection: 'column', gap: "6px"}}>*/}
+            {/*    <Grid>*/}
+            {/*        <input onChange={handelChange} type={"text"} value={newCourse} autoFocus={true} ref={inputRef} placeholder={"اسم بهم بده"}/>*/}
+            {/*        <Button onClick={handelAddItem}> add</Button>*/}
+            {/*    </Grid>*/}
 
-                {/*    {courseList.map((item, index) => (*/}
-                {/*        <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}*/}
-                {/*             key={index}>*/}
-                {/*            <p>{item.name}</p>*/}
-                {/*            <Button onClick={() => handelDelete(index)}>delete</Button>*/}
-                {/*            <Button style={{color: item.is_done === true ? 'red' : 'blue'}}*/}
-                {/*                    onClick={() => isDoneHandeler(index)}>is completed*/}
-                {/*            </Button>*/}
+            {/*    {courseList.map((item, index) => (*/}
+            {/*        <Grid style={{display: 'flex', alignItems: 'center', gap: '6px', justifyContent: 'center'}}*/}
+            {/*             key={index}>*/}
+            {/*            <p>{item.name}</p>*/}
+            {/*            <Button onClick={() => handelDelete(index)}>delete</Button>*/}
+            {/*            <Button style={{color: item.is_done === true ? 'red' : 'blue'}}*/}
+            {/*                    onClick={() => isDoneHandeler(index)}>is completed*/}
+            {/*            </Button>*/}
 
-                {/*        </Grid>*/}
-                {/*    ))}*/}
+            {/*        </Grid>*/}
+            {/*    ))}*/}
 
-                {/*    <section>*/}
-                {/*        <h3>Color Generator</h3>*/}
-                {/*        <form>*/}
-                {/*            <input*/}
-                {/*                className={err ? "error" : "null"}*/}
-                {/*                type="text"*/}
-                {/*                placeholder="#f15025"*/}
-                {/*                value={color}*/}
-                {/*                onChange={(e) => setColor(e.target.value)}*/}
-                {/*            />*/}
-                {/*            <button onClick={handleClick} type="submit">*/}
-                {/*                submit*/}
-                {/*            </button>*/}
-                {/*        </form>*/}
-                {/*    </section>*/}
-                {/*    <section style={{display:'flex',gap:8,margin:5}}>*/}
-                {/*        {list.map((item, index) => {*/}
-                {/*            return <SingleColor key={index} item={item}/>;*/}
-                {/*        })}*/}
-                {/*    </section>*/}
-                {/*</Grid>*/}
+            {/*    <section>*/}
+            {/*        <h3>Color Generator</h3>*/}
+            {/*        <form>*/}
+            {/*            <input*/}
+            {/*                className={err ? "error" : "null"}*/}
+            {/*                type="text"*/}
+            {/*                placeholder="#f15025"*/}
+            {/*                value={color}*/}
+            {/*                onChange={(e) => setColor(e.target.value)}*/}
+            {/*            />*/}
+            {/*            <button onClick={handleClick} type="submit">*/}
+            {/*                submit*/}
+            {/*            </button>*/}
+            {/*        </form>*/}
+            {/*    </section>*/}
+            {/*    <section style={{display:'flex',gap:8,margin:5}}>*/}
+            {/*        {list.map((item, index) => {*/}
+            {/*            return <SingleColor key={index} item={item}/>;*/}
+            {/*        })}*/}
+            {/*    </section>*/}
+            {/*</Grid>*/}
 
-                {/*<FullName/>*/}
-                {/*<Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>*/}
+            {/*<FullName/>*/}
+            {/*<Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>*/}
 
 
-                    {/*<Cat/>*/}
+            {/*<Cat/>*/}
 
-                {/*</Grid>*/}
-                <ShopPhone/>
+            {/*</Grid>*/}
+            {/*<ShopPhone/>*/}
 
-                {/*<Routes>*/}
-                {/*        <Route  path='/' element={< Cocktail />}/>*/}
-                {/*        <Route  path='/About' element={< About />}/>*/}
-                {/*        <Route  path='/Newsletter' element={<Newsletter/>}/>*/}
-                {/*        <Route  path='/blog/details' element={<Details/>}/>*/}
-                {/*    </Routes>*/}
+            {/*<Routes>*/}
+            {/*    <Route path='/' element={< Cocktail/>}/>*/}
+            {/*    <Route path='/About' element={< About/>}/>*/}
+            {/*    <Route path='/Newsletter' element={<Newsletter/>}/>*/}
+            {/*    <Route path='/blog/details' element={<Details/>}/>*/}
+            {/*</Routes>*/}
 
-                {/*<OpenFull/>*/}
-            </>
+            <Routes>
+                <Route path='/' element={< ComfortShop/>}/>
+                <Route path='/About' element={< About/>}/>
+                <Route path='/products' element={<Products/>}/>
+                <Route path='Cart' element={<Cart/>}/>
+            </Routes>
+
+            {/*<OpenFull/>*/}
+            {/*<ComfortShop/>*/}
+        </>
 
     );
 }

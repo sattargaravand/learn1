@@ -67,7 +67,7 @@ const Cat = () => {
             {/*<ThemeProvider theme={ColorTheme}>*/}
 
                 <Card item xs={4} md={8} lg={12}>
-                    <  Grid sx={{
+                    <Grid sx={{
                         display: 'flex',
                         flexDirection: 'column',
                         gap: 2,
