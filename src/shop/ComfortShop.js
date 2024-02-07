@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Badge, Box, Button, Card, CardActions, CardContent, Grid, Switch, Typography,} from "@mui/material";
+import {Box, Button, Card, Grid, Paper, Switch, Typography,} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import {NavLink, useNavigate} from "react-router-dom";
@@ -7,9 +7,15 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import image from "./thumbnail-photo.jpg";
 import CleanHandsIcon from '@mui/icons-material/CleanHands';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 const ComfortShop = () => {
     const navigate = useNavigate();
+
+    const [items, setItems] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
+
     const [toggleDarkMode, setToggleDarkMode] = useState(true);
 
     const toggleDarkTheme = () => {
@@ -29,6 +35,26 @@ const ComfortShop = () => {
         },
     });
 
+    // const HandleDelete = (id) => {
+    //     let copyState = [...items];
+    //     let index = copyState.findIndex((a) => (a.id === id))
+    //     copyState.splice(index, 1)
+    //     setItems(copyState);
+    // }
+
+    const changeItemAmount = (itemId) => {
+
+        let itemsCopy = [...items];
+        let fIndex = itemsCopy.findIndex((i) => i.id === itemId)
+
+        let item = itemsCopy[fIndex];
+        item.amount = item.amount + 1;
+        setItems([...items, item]);
+
+        setTotalPrice(totalPrice + item.price);
+        setItems(itemsCopy);
+    }
+
     return (
 
         <ThemeProvider theme={darkTheme}>
@@ -38,10 +64,11 @@ const ComfortShop = () => {
                 gap: 2,
                 alignItems: 'center',
                 background: 'rgba(0,1,5,0)',
-                height: '100vh',
+                width: '100%',
+                padding: '4'
 
             }}>
-                <Card sx={{width:'100%'}}>
+                <Card sx={{width: '100%'}}>
 
                     {/*<WbSunnyIcon checked={toggleColorTheme} onClick={toggleDarkTheme}/>*/}
 
@@ -89,19 +116,45 @@ const ComfortShop = () => {
                                     sync your reading lists across devices and customize your reading <br/>
                                     experience with the official Wikipedia app.
                                 </Typography>
-                                <button> OUR PRODUCTS</button>
+                                <Button variant={"contained"}> OUR PRODUCTS</Button>
                             </Grid>
                             <Grid md={6}>
                                 <img src={image} alt="image shop"/>
                             </Grid>
                         </Grid>
+                    </Grid>
 
-                        <Typography sx={{margin: 'auto', mt: 4, mb: 4}}> sadwed cfef wwqeqwe </Typography>
+                    <Grid sx={{
+                        display: 'flex',
+                        flexDirection: 'rows',
+                        gap: 2,
+                        justifyContent: "center",
+                        my: 4,
+                        width: '100%'
+                    }}>
+
+
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                '& > :not(style)': {
+                                    m: 1,
+                                    width: 128,
+                                    height: 128,
+                                },
+                            }}
+                        >
+                            <Paper elevation={9}>We are changing</Paper>
+                            <Paper> the way people</Paper>
+                            <Paper elevation={9}>Shop
+                            </Paper>
+                        </Box>
                     </Grid>
                 </Card>
             </Grid>
         </ThemeProvider>
-);
+    );
 };
 
 export default ComfortShop;
