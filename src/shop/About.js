@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import CleanHandsIcon from "@mui/icons-material/CleanHands";
-import {Badge, Box, Card, Grid, Switch} from "@mui/material";
+import {Badge, Box, Card, Grid, Switch, Typography} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
@@ -28,6 +28,7 @@ const About = () => {
     });
     return (
         <ThemeProvider theme={darkTheme}>
+            <Card>
             <Grid sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -77,6 +78,22 @@ const About = () => {
                 </Card>
             </Grid>
 
+            <Grid sx={{textAlign:'center',mt:4,}}>
+                <Typography sx={{color:'red',fontSize:'40px'}}> the way people sync your reading </Typography>
+                <h1> We are changing
+                    the way people
+                    Shop
+                    Save your favorite articles to read offline,
+                    sync your reading lists across devices and customize your reading
+                    experience with the official Wikipedia app.
+                the way people sync your reading lists across devices and customize your reading
+                Shop experience with the
+                    the way people sync your reading lists across devices and customize your reading
+
+                </h1>
+            </Grid>
+
+            </Card>
         </ThemeProvider>
     );
 };

@@ -7,11 +7,25 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import image from "./thumbnail-photo.jpg";
 import CleanHandsIcon from '@mui/icons-material/CleanHands';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+
+
 
 const ComfortShop = () => {
-    const navigate = useNavigate();
+
+    const {useRef} = React;
+
+    const elementRefs = [
+        useRef(null),
+        useRef(null),
+        useRef(null)
+    ];
+    const removeElement = (index) => {
+        const element = elementRefs[index].current;
+        if (element) {
+            element.remove();
+        }
+    };
 
     const [items, setItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
@@ -139,16 +153,21 @@ const ComfortShop = () => {
                                 display: 'flex',
                                 flexWrap: 'wrap',
                                 '& > :not(style)': {
-                                    m: 1,
-                                    width: 128,
-                                    height: 128,
+                                    m: 5,
+                                    width: 200,
+                                    height: 200,
+                                    textAlign: 'center',
+                                    border: '1px solid red'
+
                                 },
                             }}
                         >
-                            <Paper elevation={9}>We are changing</Paper>
-                            <Paper> the way people</Paper>
-                            <Paper elevation={9}>Shop
-                            </Paper>
+                            <Paper onClick={() => removeElement(0)} ref={elementRefs[0]}
+                                   elevation={9}>We are changing Save your favorite articles to read offline,</Paper>
+                            <Paper onClick={() => removeElement(1)} ref={elementRefs[1]}> the way
+                                people sync your reading lists across devices and customize your reading </Paper>
+                            <Paper onClick={() => removeElement(2)} ref={elementRefs[2]}
+                                   elevation={9}>Shop experience with the official Wikipedia app.</Paper>
                         </Box>
                     </Grid>
                 </Card>

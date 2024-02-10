@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Box, Button, Card, Grid, Switch, Typography,} from "@mui/material";
+import {Box, Button, Card, Grid, Paper, Switch, Typography,} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import {NavLink, useNavigate} from "react-router-dom";
@@ -86,32 +86,24 @@ const Cart = () => {
                         my: 4,
                         width: '100%'
                     }}>
-                        <Grid sx={{backgroundColor: 'red', width: '400px', height: '300px'}}>
-                            4886
-                            sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app. 4886
-                            sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app.
-                        </Grid>
-                        <Grid sx={{backgroundColor: 'green', width: '400px', height: '300px'}}>
-                            sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app.
-                            4886 sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app.
-                            4886
-                        </Grid>
-                        <Grid sx={{backgroundColor: 'blue', width: '400px', height: '300px'}}>
-                            sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app.
-                            4886 sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app.
-                            4886
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexWrap: 'wrap',
+                                '& > :not(style)': {
+                                    m: 5,
+                                    width: 300,
+                                    height: 300,
+                                    textAlign:'center',
+                                    border:'1px solid red'
 
-                            sync your reading lists across devices and customize your reading
-                            experience with the official Wikipedia app. sync your reading lists across devices and
-                            customize your reading
-                            experience with the official Wikipedia app.
-                        </Grid>
+                                },
+                            }}
+                        >
+                            <Paper elevation={9}>We are changing Save your favorite articles to read offline,</Paper>
+                            <Paper> the way people sync your reading lists across devices and customize your reading </Paper>
+                            <Paper elevation={9}>Shop experience with the official Wikipedia app.</Paper>
+                        </Box>
                     </Grid>
                 </Card>
             </Grid>
