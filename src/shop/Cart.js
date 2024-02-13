@@ -9,6 +9,20 @@ import CleanHandsIcon from '@mui/icons-material/CleanHands';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 
 const Cart = () => {
+    const {useRef} = React;
+
+    const elementRefs = [
+        useRef(null),
+        useRef(null),
+        useRef(null)
+    ];
+    const removeElement = (index) => {
+        const element = elementRefs[index].current;
+        if (element) {
+            element.remove();
+        }
+    };
+
     const navigate = useNavigate();
     const [toggleDarkMode, setToggleDarkMode] = useState(true);
 
@@ -32,17 +46,18 @@ const Cart = () => {
     return (
 
         <ThemeProvider theme={darkTheme}>
-            <Grid sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 2,
-                alignItems: 'center',
-                background: 'rgba(0,1,5,0)',
-                width: '100%',
-                padding: '4'
 
-            }}>
-                <Card sx={{width: '100%'}}>
+            <Card sx={{width: '100%'}}>
+                <Grid sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 2,
+                    alignItems: 'center',
+                    background: 'rgba(0,1,5,0)',
+                    width: '100%',
+                    padding: '4'
+
+                }}>
 
                     {/*<WbSunnyIcon checked={toggleColorTheme} onClick={toggleDarkTheme}/>*/}
 
@@ -55,7 +70,7 @@ const Cart = () => {
                                         display: {xs: 'block', sm: 'flex', md: 'flex'},
                                         justifyContent: 'space-between',
                                         backgroundColor: '#B8E896',
-                                        boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)'
+
                                     }}
                                     variant="dense">
 
@@ -94,19 +109,23 @@ const Cart = () => {
                                     m: 5,
                                     width: 300,
                                     height: 300,
-                                    textAlign:'center',
-                                    border:'1px solid red'
+                                    textAlign: 'center',
+                                    border: '1px solid red'
 
                                 },
                             }}
                         >
-                            <Paper elevation={9}>We are changing Save your favorite articles to read offline,</Paper>
-                            <Paper> the way people sync your reading lists across devices and customize your reading </Paper>
-                            <Paper elevation={9}>Shop experience with the official Wikipedia app.</Paper>
+                            <Paper onClick={() => removeElement(0)} ref={elementRefs[0]}
+                                   elevation={9}>We are changing Save your favorite articles to read offline,</Paper>
+                            <Paper onClick={() => removeElement(1)} ref={elementRefs[1]}> the way
+                                people sync your reading lists across devices and customize your reading </Paper>
+                            <Paper onClick={() => removeElement(2)} ref={elementRefs[2]}
+                                   elevation={9}>Shop experience with the official Wikipedia app.</Paper>
                         </Box>
                     </Grid>
-                </Card>
-            </Grid>
+                </Grid>
+            </Card>
+
         </ThemeProvider>
 
     )

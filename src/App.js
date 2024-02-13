@@ -1,7 +1,6 @@
 import './App.css';
 import CssBaseline from "@mui/material/CssBaseline";
-// import Cocktail from "./Cocktail";
-
+import Cocktail from "./Cocktail";
 // import About from "../src/cock/About";
 import Newsletter from "../src/cock/Newsletter";
 import {Route, Routes} from "react-router-dom";
@@ -11,6 +10,9 @@ import ComfortShop from "./shop/ComfortShop";
 import About from "./shop/About";
 import Products from "./shop/Products";
 import Cart from "./shop/Cart";
+import Cat from "./Cat";
+import ShopPhone from "./phone/ShopPhone";
+import FullName from "./FullName";
 
 function App() {
 
@@ -125,14 +127,14 @@ function App() {
             {/*    </section>*/}
             {/*</Grid>*/}
 
-            {/*<FullName/>*/}
+            <FullName/>
             {/*<Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>*/}
 
 
-            {/*<Cat/>*/}
+            <Cat/>
 
             {/*</Grid>*/}
-            {/*<ShopPhone/>*/}
+            <ShopPhone/>
 
             {/*<Routes>*/}
             {/*    <Route path='/' element={< Cocktail/>}/>*/}
@@ -150,6 +152,7 @@ function App() {
 
             {/*<OpenFull/>*/}
             {/*<ComfortShop/>*/}
+            <Cocktail/>
         </>
 
     );
