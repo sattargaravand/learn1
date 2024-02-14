@@ -33,7 +33,7 @@ const Cocktail = () => {
     };
 
     const navigate = useNavigate();
-
+    console.log('add new log')
     return (
         <>
 
