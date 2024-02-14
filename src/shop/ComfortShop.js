@@ -12,6 +12,11 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 
+const helper = require("../Helper");
+
+
+
+
 const ComfortShop = () => {
 
 
@@ -20,31 +25,30 @@ const ComfortShop = () => {
     const [toggleDarkMode, setToggleDarkMode] = useState(true);
 
 
-
     const {useRef} = React;
 
-    const fetchData = async () => {
-        if (items?.length > 0) return;
-        try {
-            const res = PhoneApi;
-            setItems(res)
-            return res;
-        } catch (error) {
-            console.log("error")
-        }
-    };
-
-    const elementRefs = [
-        useRef(null),
-        useRef(null),
-        useRef(null)
-    ];
-    const removeElement = (index) => {
-        const element = elementRefs[index].current;
-        if (element) {
-            element.remove();
-        }
-    };
+    // const fetchData = async () => {
+    //     if (items?.length > 0) return;
+    //     try {
+    //         const res = PhoneApi;
+    //         setItems(res)
+    //         return res;
+    //     } catch (error) {
+    //         console.log("error")
+    //     }
+    // };
+    //
+    // const elementRefs = [
+    //     useRef(null),
+    //     useRef(null),
+    //     useRef(null)
+    // ];
+    // const removeElement = (index) => {
+    //     const element = elementRefs[index].current;
+    //     if (element) {
+    //         element.remove();
+    //     }
+    // };
 
 
     const toggleDarkTheme = () => {
@@ -71,33 +75,33 @@ const ComfortShop = () => {
     //     setItems(copyState);
     // }
 
-    const changeItemAmount = (itemId, isIncrease = true) => {
-
-        let itemsCopy = [...items];
-        let fIndex = itemsCopy.findIndex((i) => i.id === itemId)
-
-        let item = itemsCopy[fIndex];
-        if (isIncrease) {
-            item.amount = item.amount + 1;
-            setItems([...items, item]);
-
-            setTotalPrice(totalPrice + item.price);
-
-
-        } else {
-            if (item?.amount > 0)
-                item.amount = item.amount - 1;
-            else {
-                if (totalPrice >= 0) return false;
-            }
-
-            setTotalPrice(totalPrice - item.price)
-
-        }
-
-
-        setItems(itemsCopy);
-    }
+    // const changeItemAmount = (itemId, isIncrease = true) => {
+    //
+    //     let itemsCopy = [...items];
+    //     let fIndex = itemsCopy.findIndex((i) => i.id === itemId)
+    //
+    //     let item = itemsCopy[fIndex];
+    //     if (isIncrease) {
+    //         item.amount = item.amount + 1;
+    //         setItems([...items, item]);
+    //
+    //         setTotalPrice(totalPrice + item.price);
+    //
+    //
+    //     } else {
+    //         if (item?.amount > 0)
+    //             item.amount = item.amount - 1;
+    //         else {
+    //             if (totalPrice >= 0) return false;
+    //         }
+    //
+    //         setTotalPrice(totalPrice - item.price)
+    //
+    //     }
+    //
+    //
+    //     setItems(itemsCopy);
+    // }
 
 
     const f = new Intl.NumberFormat(undefined, '', {
@@ -120,6 +124,14 @@ const ComfortShop = () => {
         copyState.splice(index, 1)
         setItems(copyState);
     }
+
+    let x =  helper.sumNum(40,8)
+    console.log("eee",x)
+
+
+    let y =  helper.divNum(56,6);
+    console.log("eee",y)
+
 
     return (
 
