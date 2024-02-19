@@ -2,10 +2,9 @@ import React, {useState} from 'react';
 import {Grid, Typography} from "@mui/material";
 import {ApiData} from "./Api/ApiData";
 import Box from '@mui/material/Box';
-import CardContent from '@mui/material/CardContent';
 import Modal from '@mui/material/Modal';
 import Header from "./cock/Header";
-import {useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import Search from "./Search";
 
 
@@ -78,7 +77,7 @@ const Cocktail = () => {
                                       textAlign: 'start',
                                       gap: 1,
                                       borderRadius: '4%',
-                                      boxShadow:'8px 4px 5px'
+                                      boxShadow:'8px 4px 5px rgb(8 10 118)'
                                   }}>
 
                                 <Grid sx={{width: "100"}}>
@@ -86,40 +85,40 @@ const Cocktail = () => {
                                          alt={"cocktail"} width={"100%"}
                                     />
 
-                                    {/*<Modal*/}
-                                    {/*    open={open === item.strDrinkThumb}*/}
-                                    {/*    onClose={handleClose}*/}
-                                    {/*>*/}
+                                    <Modal
+                                        open={open === item.strDrinkThumb}
+                                        onClose={handleClose}
+                                    >
 
 
-                                    {/*    <Box sx={style}>*/}
-                                    {/*        <h2 style={{textAlign: 'center'}}>{item.strDrink}</h2>*/}
+                                        <Box sx={style}>
+                                            <h2 style={{textAlign: 'center'}}>{item.strDrink}</h2>
 
-                                    {/*        <Grid sx={{display: 'flex', overflow: 'hidden', width: '100%'}}>*/}
-                                    {/*            <img style={{width: '50%', borderRadius: '5%',}} src={item.strDrinkThumb}*/}
-                                    {/*                 alt={"cocktail"}/>*/}
+                                            <Grid sx={{display: 'flex', overflow: 'hidden', width: '100%'}}>
+                                                <img style={{width: '50%', borderRadius: '5%',}} src={item.strDrinkThumb}
+                                                     alt={"cocktail"}/>
 
-                                    {/*            <Grid sx={{*/}
-                                    {/*                display: 'flex',*/}
-                                    {/*                flexDirection: "column",*/}
-                                    {/*                textAlign: 'start',*/}
-                                    {/*                padding: 2,*/}
-                                    {/*            }}>*/}
-                                    {/*                <Typography> Name: {item.strDrink}</Typography> <br/>*/}
-                                    {/*                <Typography> CateGory : {item.strCategory}</Typography><br/>*/}
-                                    {/*                <Typography> Info: {item.strAlcoholic}</Typography>*/}
-                                    {/*                <Typography> Glass: {item.strInstructions}</Typography>*/}
-                                    {/*            </Grid>*/}
-                                    {/*        </Grid>*/}
-                                    {/*    </Box>*/}
+                                                <Grid sx={{
+                                                    display: 'flex',
+                                                    flexDirection: "column",
+                                                    textAlign: 'start',
+                                                    padding: 2,
+                                                }}>
+                                                    <Typography> <span style={{backgroundColor:'green'}}>Name:</span> {item.strDrink}</Typography>
+                                                    <Typography> <span style={{backgroundColor:'green'}}>CateGory:</span>{item.strCategory}</Typography>
+                                                    <Typography> <span style={{backgroundColor:'green'}}>Info:</span>{item.strAlcoholic}</Typography>
+                                                    <Typography> <span style={{backgroundColor:'green'}}>Glass:</span> {item.strInstructions}</Typography>
+                                                </Grid>
+                                            </Grid>
+                                        </Box>
 
 
-                                    {/*</Modal>*/}
+                                    </Modal>
                                 </Grid>
-                                {item.strDrink} <br/>
+                                <Typography> <span style={{backgroundColor:'#B4B5F3FF',fontSize:'20px',padding:3,margin:3,borderRadius:'5%'}}> {item.strDrink} </span></Typography>
                                 {item.strCategory}<br/>
                                 {item.strAlcoholic}<br/>
-                                {item.dateModified}
+                                <Typography><span style={{backgroundColor:'green'}}>DateModified: {item.dateModified} </span></Typography>
                             </Grid>
                         ))}
                 </Grid>

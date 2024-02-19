@@ -6,6 +6,9 @@ import {PhoneApi} from "../Api/PhoneApi";
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import {useQuery} from "react-query";
+import Face2Icon from '@mui/icons-material/Face2';
+import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import Divider from "@mui/material/Divider";
 
 
 const ShopPhone = () => {
@@ -88,19 +91,24 @@ const ShopPhone = () => {
 
                             sx={{
                                 display: {xs: 'block', sm: 'flex', md: 'flex'},
-                                justifyContent: 'space-between',
+                                justifyContent: 'space-around',
                                 backgroundColor: '#3a35cb',
-                                boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)'
+                                boxShadow: '0px 3px 6px rgba(0, 0, 0, 0.1)',
                             }}
                             variant="dense">
 
-                            <h1 style={{color: 'red'}}>UserReducer</h1>
+
+                            <h1>UserReducer</h1>
+
+                            <Face2Icon sx={{fontSize: '60px'}}/>
+
                             <Grid sx={{display: 'flex', gap: 2, textDecoration: 'none'}}>
+
 
                                 <Grid sx={{display: 'flex', flexDirection: 'column'}}>
                                     <Badge badgeContent={totalCount} color={"primary"}>
                                     </Badge>
-                                    <AddShoppingCartIcon sx={{fontSize: '40px'}}/>
+                                    <CardGiftcardIcon sx={{fontSize: '40px'}}/>
                                     <br/>
                                 </Grid>
 
@@ -119,6 +127,14 @@ const ShopPhone = () => {
                 backgroundColor: 'rgba(255,255,255,0.68)'
             }}>
                 <h2>Total Price: {f.format(actualPrice)} </h2>
+
+                <Grid sx={{display: 'flex', flexDirection: 'column'}}>
+                    <Badge badgeContent={totalCount} color={"primary"}>
+                    </Badge>
+                    <AddShoppingCartIcon sx={{fontSize: '60px'}}/>
+                    <br/>
+                </Grid>
+                <Divider/>
 
                 <Typography sx={{textAlign: 'center', fontSize: '25px', mt: 2, mb: 2}}>YOUR BAG</Typography>
 
@@ -146,7 +162,7 @@ const ShopPhone = () => {
                                     {item.title}
                                     <br/>
                                     <br/>
-                                    <Typography>${item.price}</Typography> <br/>
+                                    <Typography>$:{item.price}</Typography> <br/>
 
 
                                     <button onClick={() => HandleDelete(item.id)}>remove</button>
@@ -156,8 +172,14 @@ const ShopPhone = () => {
 
                                 <Grid item
 
-                                      sx={{alignItems: 'center', textAlign: 'center'}}>
+                                      sx={{
+                                          alignItems: 'center',
+                                          textAlign: 'center',
+                                          gap: 2,
+                                          justifyContent: 'center'
+                                      }}>
                                     <KeyboardArrowUpIcon
+                                        sx={{cursor: 'pointer'}}
 
                                         onClick={() => {
                                             changeItemAmount(item.id)
@@ -166,12 +188,20 @@ const ShopPhone = () => {
                                     <h3>{item.amount}</h3>
 
                                     <KeyboardArrowDownIcon
+                                        sx={{cursor: 'pointer'}}
 
                                         onClick={() => {
                                             changeItemAmount(item.id, false)
 
 
                                         }}/>
+
+                                    <Grid sx={{display: 'flex', flexDirection: 'column'}}>
+                                        <Badge badgeContent={item.amount} color={"primary"}>
+                                        </Badge>
+                                        <AddShoppingCartIcon sx={{fontSize: '40px'}}/>
+                                        <br/>
+                                    </Grid>
 
                                 </Grid>
 

@@ -10,7 +10,7 @@ export const PhoneApi = [
     {
         id: 2,
         title: 'google pixel ',
-        price:  88888,
+        price:  888548688,
         img:
             'https://biaupload.com/do.php?imgf=org-cf9b68e795392.png',
         amount: 0,
@@ -18,7 +18,7 @@ export const PhoneApi = [
     {
         id: 3,
         title: 'Xiaomi Redmi Note 2',
-        price: 7777777,
+        price: 117777777,
         img:
             'https://biaupload.com/do.php?imgf=org-7fab67f1eceb3.jpg',
         amount: 0,

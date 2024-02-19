@@ -127,28 +127,28 @@ function App() {
             {/*    </section>*/}
             {/*</Grid>*/}
 
-            <FullName/>
+            {/*<FullName/>*/}
             {/*<Grid sx={{display: 'flex', flexDirection: 'column', alignItems: 'center',width:'100%',}}>*/}
 
 
-            <Cat/>
+            {/*<Cat/>*/}
 
             {/*</Grid>*/}
-            <ShopPhone/>
-
-            {/*<Routes>*/}
-            {/*    <Route path='/' element={< Cocktail/>}/>*/}
-            {/*    <Route path='/About' element={< About/>}/>*/}
-            {/*    <Route path='/Newsletter' element={<Newsletter/>}/>*/}
-            {/*    <Route path='/blog/details' element={<Details/>}/>*/}
-            {/*</Routes>*/}
+            {/*<ShopPhone/>*/}
 
             <Routes>
-                <Route path='/' element={< ComfortShop/>}/>
-                <Route path='/About' element={< About/>}/>
-                <Route path='/products' element={<Products/>}/>
-                <Route path='Cart' element={<Cart/>}/>
+                <Route path='/' element={< Cocktail/>}/>
+                {/*<Route path='/about' element={< About/>}/>*/}
+                <Route path='/Newsletter' element={<Newsletter/>}/>
+                <Route path='/blog/details' element={<Details/>}/>
             </Routes>
+
+            {/*<Routes>*/}
+            {/*    <Route path='/' element={< ComfortShop/>} />*/}
+            {/*    <Route path='/About' element={< About/>} />*/}
+            {/*    <Route path='/Newsletter' element={<Newsletter/>} />*/}
+            {/*    <Route path='/blog/details' element={<Details/>} />*/}
+            {/*</Routes>*/}
 
             {/*<OpenFull/>*/}
             {/*<ComfortShop/>*/}
